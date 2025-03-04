@@ -1,0 +1,121 @@
+﻿@model webOdev.Models.Schedule
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <!-- Kolon genişliğini artırdım, daha geniş form alanı -->
+            <div class="card shadow-lg border-0 rounded-lg" style="border-width: 5px;">
+                <!-- Çerçeve genişliğini artırdım -->
+                <div class="card-header text-center" style="background-color: #660000; color: white; border-radius: 10px 10px 0 0;">
+                    <h4 class="font-weight-bold">Takvim Oluştur</h4> <!-- Başlık değiştirildi -->
+                </div>
+                <div class="card-body p-5">
+                    <form asp-action="Create" method="post">
+                        <!-- Başlık Alanı -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Title" class="control-label" style="font-weight: 600; color: #660000;">Başlık</label>
+                            <input asp-for="Title" class="form-control form-control-lg shadow-sm neon-border" placeholder="Başlık" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <!-- Başlangıç Zamanı Alanı -->
+                        <div class="form-group mb-4">
+                            <label asp-for="StartTime" class="control-label" style="font-weight: 600; color: #660000;">Başlangıç Zamanı</label>
+                            <input asp-for="StartTime" type="datetime-local" class="form-control form-control-lg shadow-sm neon-border" />
+                            <span asp-validation-for="StartTime" class="text-danger"></span>
+                        </div>
+
+                        <!-- Bitiş Zamanı Alanı -->
+                        <div class="form-group mb-4">
+                            <label asp-for="EndTime" class="control-label" style="font-weight: 600; color: #660000;">Bitiş Zamanı</label>
+                            <input asp-for="EndTime" type="datetime-local" class="form-control form-control-lg shadow-sm neon-border" />
+                            <span asp-validation-for="EndTime" class="text-danger"></span>
+                        </div>
+
+                        <!-- Atanan Asistan veya Öğretim Üyesi Seçimi -->
+                        <div class="form-group mb-4">
+                            <label asp-for="AssignedTo" class="control-label" style="font-weight: 600; color: #660000;">Asistan veya Öğretim Üyesi Seç</label>
+                            <select asp-for="AssignedTo" class="form-control form-control-lg shadow-sm neon-border">
+                                <option value="">Seçiniz</option>
+                                @foreach (var assistant in ViewData["Assistants"] as List<webOdev.Models.Assistant>)
+                                {
+                                    <option value="@assistant.Name">@assistant.Name (Asistan)</option>
+                                }
+                                @foreach (var doctor in ViewData["Doctors"] as List<webOdev.Models.Doctor>)
+                                {
+                                    <option value="@doctor.Name">@doctor.Name (Öğretim Üyesi)</option>
+                                }
+                            </select>
+                            <span asp-validation-for="AssignedTo" class="text-danger"></span>
+                        </div>
+
+                        <!-- Bölüm Seçimi -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Department" class="control-label" style="font-weight: 600; color: #660000;">Bölüm Seç</label>
+                            <select asp-for="Department" class="form-control form-control-lg shadow-sm neon-border">
+                                <option value="">Seçiniz</option>
+                                @foreach (var department in ViewData["Departments"] as List<webOdev.Models.Department>)
+                                {
+                                    <option value="@department.Name">@department.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Department" class="text-danger"></span>
+                        </div>
+
+                        <!-- Gönder Butonu -->
+                        <div class="form-group text-center mb-4">
+                            <button type="submit" class="btn btn-lg btn-block neon-border" style="background-color: #330000; color: white; font-weight: 600; border-radius: 30px;">
+                                Oluştur
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Neon kırmızı çerçeve ve ışık efekti */
+    .neon-border {
+        border: 5px solid #330000; /* Neon kırmızı renk ve geniş çerçeve */
+        box-shadow: 0 0 15px #330000, 0 0 20px #330000, 0 0 30px #330000, 0 0 40px #330000; /* Neon ışık efekti daha geniş */
+    }
+
+    /* Odaklanıldığında input alanı */
+    .form-group input:focus,
+    .form-group select:focus {
+        border-color: #330000; /* Focus anında neon kırmızı çerçeve */
+        box-shadow: 0 0 15px #330000, 0 0 20px #330000, 0 0 30px #330000, 0 0 40px #330000; /* Focus anında neon ışık efekti */
+    }
+
+    /* Oluştur butonu hover efekt */
+    .btn.neon-border:hover {
+        border-color: #330000;
+        box-shadow: 0 0 15px #330000, 0 0 20px #330000, 0 0 30px #330000, 0 0 40px #330000; /* Hover (fareyle üzerine gelindiğinde) neon efekti */
+    }
+
+    /* Form Başlık ve Yazılar için Stil */
+    h2 {
+        color: #660000; /* Başlık kırmızı renk */
+    }
+
+    /* Hata mesajı */
+    .alert-danger {
+        font-weight: 600;
+        background-color: #f8d7da;
+        color: #721c24;
+        border-radius: 5px;
+    }
+
+    /* Genel stil ayarları */
+    .card-header {
+        background-color: #660000;
+        color: white;
+        font-weight: bold;
+    }
+
+    .card-body {
+        background-color: white; /* Arka plan beyaz oldu */
+        color: black; /* Yazı rengini siyah yaptım */
+    }
+</style>

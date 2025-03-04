@@ -1,0 +1,123 @@
+﻿@model webOdev.Models.Schedule
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <!-- Daha geniş bir çerçeve -->
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-center" style="background-color: #660000; color: white; border-radius: 10px 10px 0 0;">
+                    <h4 class="font-weight-bold">Takvimi Düzenle</h4>
+                </div>
+                <div class="card-body p-5">
+                    <form asp-action="Edit" asp-controller="Schedule" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Başlık Alanı -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Title" style="font-weight: 600;">Başlık</label>
+                            <input asp-for="Title" class="form-control form-control-lg" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <!-- Başlangıç Zamanı Alanı -->
+                        <div class="form-group mb-4">
+                            <label asp-for="StartTime" style="font-weight: 600;">Başlangıç Zamanı</label>
+                            <input asp-for="StartTime" type="datetime-local" class="form-control form-control-lg" />
+                            <span asp-validation-for="StartTime" class="text-danger"></span>
+                        </div>
+
+                        <!-- Bitiş Zamanı Alanı -->
+                        <div class="form-group mb-4">
+                            <label asp-for="EndTime" style="font-weight: 600;">Bitiş Zamanı</label>
+                            <input asp-for="EndTime" type="datetime-local" class="form-control form-control-lg" />
+                            <span asp-validation-for="EndTime" class="text-danger"></span>
+                        </div>
+
+                        <!-- Atanan Kişi Seçim Alanı -->
+                        <div class="form-group mb-4">
+                            <label asp-for="AssignedTo" style="font-weight: 600;">Atanan Kişi</label>
+                            <select asp-for="AssignedTo" class="form-control form-control-lg">
+                                @foreach (var assistant in ViewData["Assistants"] as List<webOdev.Models.Assistant>)
+                                {
+                                    <option value="@assistant.Name" selected="@(Model.AssignedTo == assistant.Name ? "selected" : null)">
+                                        @assistant.Name (Asistan)
+                                    </option>
+                                }
+                                @foreach (var doctor in ViewData["Doctors"] as List<webOdev.Models.Doctor>)
+                                {
+                                    <option value="@doctor.Name" selected="@(Model.AssignedTo == doctor.Name ? "selected" : null)">
+                                        @doctor.Name (Doktor)
+                                    </option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Bölüm Seçim Alanı -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Department" style="font-weight: 600;">Bölüm</label>
+                            <select asp-for="Department" class="form-control form-control-lg">
+                                @foreach (var department in ViewData["Departments"] as List<webOdev.Models.Department>)
+                                {
+                                    <option value="@department.Name" selected="@(Model.Department == department.Name ? "selected" : null)">
+                                        @department.Name
+                                    </option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Kaydet ve İptal Butonları -->
+                        <div class="form-group text-center mb-4">
+                            <button type="submit" class="btn btn-lg btn-block neon-border" style="background-color: #330000; color: white; font-weight: 600; border-radius: 30px;">
+                                Değişiklikleri Kaydet
+                            </button>
+                        </div>
+
+                        <div class="form-group text-center mb-4">
+                            <a asp-action="Index" asp-controller="Schedule" class="btn btn-lg btn-block neon-border" style="background-color: #4d0000; color: white; font-weight: 600; border-radius: 30px;">
+                                İptal
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Kutu içindeki yazı düzenlemeleri */
+    .form-control {
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    /* Card container - genel görünüm */
+    .card {
+        border-radius: 12px; /* Kartepenin kenarlarını yuvarlat */
+        border: 1px solid #ddd; /* Hafif gri çerçeve */
+    }
+
+    /* Neon border efekti */
+    .neon-border {
+        border: 2px solid #330000; /* Neon kırmızı renk */
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Neon ışık efekti */
+    }
+
+    /* Giriş butonu hover efekti */
+    .btn.neon-border:hover {
+        border-color: #330000;
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Hover neon efekti */
+        background-color: #4d0000; /* Hover anında renk değişimi */
+    }
+
+    /* Card body */
+    .card-body {
+        padding: 2rem;
+    }
+
+    /* Buton stilleri */
+    .btn {
+        font-weight: 600;
+        border-radius: 30px;
+    }
+</style>

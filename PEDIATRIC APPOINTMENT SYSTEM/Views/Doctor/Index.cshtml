@@ -1,0 +1,36 @@
+﻿@model IEnumerable<webOdev.Models.Doctor>
+
+<h2 class="text-center">Öğretim Üyesi Listesi</h2>
+
+<div class="row">
+    <div class="col-md-12 text-end mb-3">
+        <a href="@Url.Action("Create")" class="btn btn-danger">Yeni Öğretim Üyesi Oluştur</a>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Uzmanlık Alanı</th>
+            <th>E-posta</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>@doctor.Name</td>
+                <td>@doctor.Surname</td>
+                <td>@doctor.Specialization</td>
+                <td>@doctor.Email</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = doctor.Id })" class="btn btn-success btn-sm">Düzenle</a>
+                    <a href="@Url.Action("Delete", new { id = doctor.Id })" class="btn btn-danger btn-sm">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

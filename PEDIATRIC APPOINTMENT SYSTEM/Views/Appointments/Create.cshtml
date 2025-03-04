@@ -1,0 +1,172 @@
+﻿@model webOdev.Models.Appointment
+<div id="responseMessage" class="alert d-none"></div> <!-- Dinamik mesaj için -->
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <!-- Burada formun genişliğini artırdım -->
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-center" style="background-color: #660000; color: white; border-radius: 10px 10px 0 0;">
+                    <h4 class="font-weight-bold">Randevu Formu</h4>
+                </div>
+                <div class="card-body p-5">
+                    <form id="appointmentForm">
+                        <div class="mb-3">
+                            <label for="PatientName" class="form-label">Randevu Sebebi</label>
+                            <input asp-for="PatientName" class="form-control form-control-lg" id="PatientName" />
+                            <span asp-validation-for="PatientName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Date" class="form-label">Tarih</label>
+                            <input asp-for="Date" type="date" class="form-control form-control-lg" id="Date" />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Time" class="form-label">Saat</label>
+                            <select asp-for="Time" class="form-control form-control-lg" id="Time">
+                                @foreach (var time in AppointmentHelper.GetAvailableTimes())
+                                {
+                                    <option value="@time">@time</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Time" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="DoctorId" class="form-label">Öğretim Üyesi Seçin</label>
+                            <select asp-for="DoctorId" class="form-control form-control-lg" id="DoctorId">
+                                @foreach (var doctor in ViewBag.Doctors)
+                                {
+                                    <option value="@doctor.Id">@doctor.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="DoctorId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="AssistantId" class="form-label">Asistan Seçin</label>
+                            <select asp-for="AssistantId" class="form-control form-control-lg" id="AssistantId">
+                                @foreach (var assistant in ViewBag.Assistants)
+                                {
+                                    <option value="@assistant.Id">@assistant.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="AssistantId" class="text-danger"></span>
+                        </div>
+
+                        <!-- Neon border sadece butona eklendi -->
+                        <button type="button" class="btn btn-lg btn-block neon-border" style="background-color: #330000; color: white; font-weight: 600; border-radius: 30px;" id="submitBtn">Randevu Oluştur</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function () {
+            const formData = {
+                PatientName: document.getElementById("PatientName").value,
+                Date: document.getElementById("Date").value,
+                Time: document.getElementById("Time").value,
+                DoctorId: document.getElementById("DoctorId").value,
+                AssistantId: document.getElementById("AssistantId").value
+            };
+
+            fetch('/Appointments/CreateAjax', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const responseMessage = document.getElementById("responseMessage");
+                    responseMessage.classList.remove("d-none");
+                    if (data.success) {
+                        responseMessage.classList.add("alert-success");
+                        responseMessage.classList.remove("alert-danger");
+                        responseMessage.innerText = data.message;
+
+                        // Formu temizle
+                        document.getElementById("appointmentForm").reset();
+                    } else {
+                        responseMessage.classList.add("alert-danger");
+                        responseMessage.classList.remove("alert-success");
+                        responseMessage.innerText = data.message;
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        });
+    </script>
+}
+
+<style>
+    /* Formun genişliğini artırdım */
+    .card {
+        border-radius: 15px;
+    }
+
+    .neon-border {
+        border: 2px solid #660000;
+        box-shadow: 0 0 5px #660000, 0 0 10px #660000, 0 0 15px #660000, 0 0 20px #660000;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Formdaki input ve select elemanları için sade bir stil */
+    .form-control {
+        font-size: 1.1rem;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+
+        .form-control:focus {
+            border-color: #660000;
+            box-shadow: 0 0 5px #660000, 0 0 10px #660000, 0 0 15px #660000, 0 0 20px #660000;
+        }
+
+    /* Randevu butonu hover */
+    .btn.neon-border:hover {
+        border-color: #660000;
+        box-shadow: 0 0 5px #660000, 0 0 10px #660000, 0 0 15px #660000, 0 0 20px #660000;
+    }
+
+    /* Başlık stil */
+    h4 {
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    /* Placeholder stil */
+    ::placeholder {
+        font-weight: 500;
+        color: #666;
+    }
+
+    /* Bağlantı stilleri */
+    a {
+        font-weight: 600;
+        color: #330000;
+    }
+
+        a:hover {
+            color: #660000;
+        }
+
+    /* Hata mesajları */
+    .alert-danger {
+        font-size: 1.1rem;
+        font-weight: 600;
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+</style>

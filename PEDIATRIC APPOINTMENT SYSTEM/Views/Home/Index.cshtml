@@ -1,0 +1,228 @@
+﻿@model IEnumerable<webOdev.Models.Schedule>
+
+@{
+    var role = ViewData["Role"] as string;
+    var username = ViewData["Username"] as string;
+
+    if (role == null) role = "Guest";
+    if (username == null) username = "User";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takvim Yönetimi</title>
+    <style>
+        /* Global Stiller */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header h2 {
+            color: #330000;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-family:'Times New Roman', Times, serif;
+            text-decoration:underline;
+        }
+
+        .admin-section {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+            .admin-section p {
+                font-weight: bold;
+            }
+
+            .admin-section .btn {
+                margin-top: 10px;
+            }
+
+        /* Takvim Bölümü */
+        .schedule-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #330000;
+        }
+
+        .card-text {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .card .btn {
+            margin-right: 10px;
+            background-color: #dc3545; /* Kırmızı */
+            border-color: #dc3545; /* Kırmızı */
+        }
+
+            .card .btn:hover {
+                background-color: #c82333; /* Koyu kırmızı */
+                border-color: #bd2130; /* Koyu kırmızı */
+            }
+
+        /* Bölüm Gösterme / Gizleme Butonu */
+        .toggle-department button {
+            background-color: #dc3545; /* Kırmızı */
+            border-color: #dc3545; /* Kırmızı */
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+            .toggle-department button:hover {
+                background-color: #c82333; /* Koyu kırmızı */
+                border-color: #bd2130; /* Koyu kırmızı */
+            }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- Hoşgeldiniz Mesajı -->
+
+
+        @if (role == "Admin")
+        {
+            <div class="admin-section">
+                <p>Admin Paneline Hoş Geldin! Takvimleri yönetebilir ve diğer işlemleri yapabilirsin.</p>
+                <a href="/Schedule/Create" class="btn btn-primary">Yeni Takvim Oluştur</a>
+                @if (Context.Session.GetString("Role") == "Admin")
+                {
+                    <a asp-action="CreateEmergency" class="btn btn-danger">Yeni Acil Durum Oluştur</a>
+                }
+            </div>
+        }
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+            <!-- Takvim Görünümü -->
+            <div id="calendar" class="mb-4"></div>
+
+            <h3>Takvimleriniz</h3>
+
+            <!-- Kart Görünümü -->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                @foreach (var schedule in Model)
+                {
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">@schedule.Title</h5>
+                                <p class="card-text">
+                                    <strong>Başlangıç:</strong> @schedule.StartTime<br />
+                                    <strong>Bitiş:</strong> @schedule.EndTime<br />
+                                    <strong>Atanan Kişi:</strong> @schedule.AssignedTo<br />
+                                    <strong>Bölüm:</strong> @schedule.Department
+                                </p>
+                                @if (role == "Admin")
+                                {
+                                    <a asp-action="Edit" asp-controller="Schedule" asp-route-id="@schedule.Id" class="btn btn-success">Düzenle</a>
+                                    <a asp-action="Delete" asp-controller="Schedule" asp-route-id="@schedule.Id" class="btn btn-danger">Sil</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+        @foreach (var schedule in Model)
+        {
+            @: {
+            @: title: "@schedule.Title",
+            @: start: "@schedule.StartTime.ToString("yyyy-MM-ddTHH:mm:ss")",
+            @: end: "@schedule.EndTime.ToString("yyyy-MM-ddTHH:mm:ss")",
+            @: },
+        }
+                ]
+            });
+
+            calendar.render();
+
+            document.getElementById("toggleDepartments").addEventListener("click", function () {
+                const container = document.getElementById("departmentsContainer");
+                const button = document.getElementById("toggleDepartments");
+
+                if (container.style.display === "none") {
+                    fetch('/Home/Departments')
+                        .then(response => response.text())
+                        .then(html => {
+                            container.innerHTML = html;
+                            container.style.display = "block";
+                            button.innerText = "Bölümleri Gizle";
+                        })
+                        .catch(error => console.error('Bölümler yüklenirken hata:', error));
+                } else {
+                    container.style.display = "none";
+                    button.innerText = "Bölümleri Görüntüle";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

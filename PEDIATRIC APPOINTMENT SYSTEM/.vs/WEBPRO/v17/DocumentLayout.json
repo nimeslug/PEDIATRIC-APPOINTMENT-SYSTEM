@@ -1,0 +1,201 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\migrations\\20241207103517_addscheduletable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:migrations\\20241207103517_addscheduletable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\migrations\\20241217131723_calenderevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:migrations\\20241217131723_calenderevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\newfolder\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:newfolder\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\migrations\\20241214130238_addappointmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:migrations\\20241214130238_addappointmentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|c:\\users\\glsmn\\onedrive\\masa\u00FCst\u00FC\\webodev\\migrations\\20241206082105_createuserstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE44628F-7A6D-41C1-AD63-839624D9B5E7}|WEBPRO.csproj|solutionrelative:migrations\\20241206082105_createuserstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20241217131723_CalenderEvent.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Migrations\\20241217131723_CalenderEvent.cs",
+              "RelativeDocumentMoniker": "Migrations\\20241217131723_CalenderEvent.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Migrations\\20241217131723_CalenderEvent.cs",
+              "RelativeToolTip": "Migrations\\20241217131723_CalenderEvent.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T10:09:19.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "20241214130238_AddAppointmentModel.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Migrations\\20241214130238_AddAppointmentModel.cs",
+              "RelativeDocumentMoniker": "Migrations\\20241214130238_AddAppointmentModel.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Migrations\\20241214130238_AddAppointmentModel.cs",
+              "RelativeToolTip": "Migrations\\20241214130238_AddAppointmentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T10:09:06.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20241207103517_AddScheduleTable.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Migrations\\20241207103517_AddScheduleTable.cs",
+              "RelativeDocumentMoniker": "Migrations\\20241207103517_AddScheduleTable.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Migrations\\20241207103517_AddScheduleTable.cs",
+              "RelativeToolTip": "Migrations\\20241207103517_AddScheduleTable.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T10:08:48.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20241206082105_CreateUsersTable.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Migrations\\20241206082105_CreateUsersTable.cs",
+              "RelativeDocumentMoniker": "Migrations\\20241206082105_CreateUsersTable.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Migrations\\20241206082105_CreateUsersTable.cs",
+              "RelativeToolTip": "Migrations\\20241206082105_CreateUsersTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T10:08:50.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Models\\Appointment.cs",
+              "RelativeToolTip": "Models\\Appointment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T10:01:07.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Services\\EmailService.cs",
+              "RelativeToolTip": "Services\\EmailService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T07:39:51.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-20T10:22:12.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T10:34:10.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Controllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AppointmentsController.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\Controllers\\AppointmentsController.cs",
+              "RelativeToolTip": "Controllers\\AppointmentsController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T10:45:32.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\NewFolder\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "NewFolder\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\glsmn\\OneDrive\\Masa\u00FCst\u00FC\\webOdev\\NewFolder\\AppDbContext.cs",
+              "RelativeToolTip": "NewFolder\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T11:39:50.968Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

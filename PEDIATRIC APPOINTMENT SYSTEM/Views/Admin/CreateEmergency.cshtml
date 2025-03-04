@@ -1,0 +1,55 @@
+﻿@model webOdev.Models.Emergency
+
+<h2 class="text-center text-white">Acil Durum Alarmı Oluştur</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-center" style="background-color: #660000; color: white; border-radius: 10px 10px 0 0;">
+                    <h4 class="font-weight-bold">Acil Durum Alarmı Oluştur</h4>
+                </div>
+                <div class="card-body p-5">
+                    <form asp-action="CreateEmergency" method="post">
+                        <div class="form-group mb-4">
+                            <label for="Title" class="form-label">Başlık</label>
+                            <input asp-for="Title" class="form-control" id="Title" />
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="Description" class="form-label">Açıklama</label>
+                            <textarea asp-for="Description" class="form-control" id="Description"></textarea>
+                        </div>
+
+                        <!-- Gönderme Butonu -->
+                        <div class="form-group text-center mb-4">
+                            <button type="submit" class="btn btn-danger btn-lg" style="font-weight: 600; border-radius: 30px;">
+                                Acil Durumu Oluştur
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Card container - genel görünüm */
+    .card {
+        border-radius: 12px; /* Kartepenin kenarlarını yuvarlat */
+        border: 1px solid #ddd; /* Hafif gri çerçeve */
+    }
+
+    /* Buton stilleri */
+    .btn {
+        font-weight: 600;
+        border-radius: 30px;
+    }
+
+    .text-center {
+        font-size: 24px; /* Başlık font büyüklüğü */
+    }
+
+    .card-header {
+        b

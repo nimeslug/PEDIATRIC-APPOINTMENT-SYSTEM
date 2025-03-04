@@ -1,0 +1,112 @@
+﻿@model webOdev.Models.Doctor
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <!-- Daha geniş bir çerçeve -->
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-center" style="background-color: #660000; color: white; border-radius: 10px 10px 0 0;">
+                    <h4 class="font-weight-bold">Doktoru Sil</h4>
+                </div>
+                <div class="card-body p-5">
+                    <h3 class="text-center">Bu doktoru silmek istediğinizden emin misiniz?</h3>
+
+                    <!-- Doktor Adı ve Soyadı Kutucuğu -->
+                    <div class="mb-4">
+                        <h4 class="text-center">Doktor Bilgileri</h4>
+
+                        <!-- Doktor Adı ve Soyadı -->
+                        <div class="border p-3 mb-3">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-4">Doktor Adı</dt>
+                                <dd class="col-sm-8">@Model.Name @Model.Surname</dd>
+                            </dl>
+                        </div>
+
+                        <!-- Uzmanlık Alanı -->
+                        <div class="border p-3 mb-3">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-4">Uzmanlık Alanı</dt>
+                                <dd class="col-sm-8">@Model.Specialization</dd>
+                            </dl>
+                        </div>
+
+                        <!-- E-posta -->
+                        <div class="border p-3 mb-3">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-4">E-posta</dt>
+                                <dd class="col-sm-8">@Model.Email</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <!-- Silme Formu -->
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Silme Butonu -->
+                        <div class="form-group text-center mb-4">
+                            <button type="submit" class="btn btn-lg btn-block neon-border" style="background-color: #330000; color: white; font-weight: 600; border-radius: 30px;">
+                                Sil
+                            </button>
+                        </div>
+
+                        <!-- İptal Butonu -->
+                        <div class="form-group text-center mb-4">
+                            <a href="@Url.Action("Index")" class="btn btn-lg btn-block neon-border" style="background-color: #4d0000; color: white; font-weight: 600; border-radius: 30px;">
+                                İptal
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Card container - genel görünüm */
+    .card {
+        border-radius: 12px; /* Kartepenin kenarlarını yuvarlat */
+        border: 1px solid #ddd; /* Hafif gri çerçeve */
+    }
+
+    /* Neon border efekti */
+    .neon-border {
+        border: 2px solid #330000; /* Neon kırmızı renk */
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Neon ışık efekti */
+    }
+
+    /* Giriş butonu hover efekti */
+    .btn.neon-border:hover {
+        border-color: #330000;
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Hover neon efekti */
+        background-color: #4d0000; /* Hover anında renk değişimi */
+    }
+
+    /* Buton stilleri */
+    .btn {
+        font-weight: 600;
+        border-radius: 30px;
+    }
+
+    /* Text center düzenlemeleri */
+    .text-center {
+        font-size: 20px;
+    }
+
+    /* Border ve padding düzenlemeleri */
+    .border {
+        border: 2px solid #ddd; /* Kutu kenarlığı */
+        border-radius: 10px; /* Kenar yuvarlatma */
+    }
+
+    .p-3 {
+        padding: 1rem; /* Kutu içinde içerik düzenlemesi */
+    }
+
+    /* Liste düzenlemeleri */
+    .row dd {
+        font-weight: 600;
+    }
+</style>

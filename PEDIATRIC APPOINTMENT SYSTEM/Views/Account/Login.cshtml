@@ -1,0 +1,71 @@
+﻿@model webOdev.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <!-- Formun genişliğini artırdım -->
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-center" style="background-color: #660000; color: white; border-radius: 10px 10px 0 0;">
+                    <h4 class="font-weight-bold">@ViewData["Title"]</h4>
+                </div>
+                <div class="card-body p-5">
+                    <form asp-action="Login" method="post">
+                        <!-- Username Field -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Username" class="control-label" style="font-weight: 600;"></label>
+                            <input asp-for="Username" class="form-control form-control-lg shadow-sm neon-border" placeholder="Kullanıcı Adı" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group mb-4">
+                            <label asp-for="Password" class="control-label" style="font-weight: 600;"></label>
+                            <input asp-for="Password" type="password" class="form-control form-control-lg shadow-sm neon-border" placeholder="Şifre" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group text-center mb-4">
+                            <button type="submit" class="btn btn-lg btn-block neon-border" style="background-color: #330000; color: white; font-weight: 600; border-radius: 30px;">Giriş Yap</button>
+                        </div>
+                    </form>
+
+                    <!-- Error Message -->
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="alert alert-danger text-center">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
+
+                    <!-- Register Link -->
+                    <p class="text-center mt-4" style="font-weight: 500;">
+                        Hesabın Mı Yok? <a href="/Account/Register" style="color: #330000; font-weight: 600;">Hemen Kayıt Ol</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .neon-border {
+        border: 2px solid #330000; /* Neon kırmızı renk */
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Neon efekti */
+    }
+
+    .form-group input:focus {
+        border-color: #330000; /* Focus anında neon kırmızı çerçeve */
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Focus anında neon ışık efekti */
+    }
+
+    /* Login butonu için neon kırmızı çerçeve */
+    .btn.neon-border:hover {
+        border-color: #330000;
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Hover (fareyle üzerine gelindiğinde) neon efekti */
+    }
+</style>

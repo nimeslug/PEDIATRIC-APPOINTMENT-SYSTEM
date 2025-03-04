@@ -1,0 +1,105 @@
+﻿@model webOdev.Models.Assistant
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <!-- Formun genişliğini artırdım -->
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-center" style="background-color: #660000; color: white; border-radius: 10px 10px 0 0;">
+                    <h4 class="font-weight-bold">Yeni Asistan Ekle</h4>
+                </div>
+                <div class="card-body p-5">
+                    <form asp-action="Create" method="post">
+                        <!-- Name Field -->
+                        <div class="form-group mb-4">
+                            <label for="Name" style="font-weight: 600;">Ad</label>
+                            <input type="text" id="Name" asp-for="Name" class="form-control form-control-lg shadow-sm neon-border" placeholder="Ad" />
+                        </div>
+
+                        <!-- Surname Field -->
+                        <div class="form-group mb-4">
+                            <label for="Surname" style="font-weight: 600;">Soyad</label>
+                            <input type="text" id="Surname" asp-for="Surname" class="form-control form-control-lg shadow-sm neon-border" placeholder="Soyad" />
+                        </div>
+
+                        <!-- Phone Number Field -->
+                        <div class="form-group mb-4">
+                            <label for="PhoneNumber" style="font-weight: 600;">Telefon Numarası</label>
+                            <input type="text" id="PhoneNumber" asp-for="PhoneNumber" class="form-control form-control-lg shadow-sm neon-border" placeholder="Telefon Numarası" />
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-group mb-4">
+                            <label for="Email" style="font-weight: 600;">E-posta</label>
+                            <input type="email" id="Email" asp-for="Email" class="form-control form-control-lg shadow-sm neon-border" placeholder="E-posta" />
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group text-center mb-4">
+                            <button type="submit" class="btn btn-lg btn-block neon-border" style="background-color: #330000; color: white; font-weight: 600; border-radius: 30px;">Oluştur</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Neon border efekti */
+    .neon-border {
+        border: 2px solid #330000; /* Neon kırmızı renk */
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Neon ışık efekti */
+    }
+
+    .form-group input:focus {
+        border-color: #330000; /* Focus anında neon kırmızı çerçeve */
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Focus anında neon ışık efekti */
+    }
+
+    /* Giriş butonu hover efekti */
+    .btn.neon-border:hover {
+        border-color: #330000;
+        box-shadow: 0 0 5px #330000, 0 0 10px #330000, 0 0 15px #330000, 0 0 20px #330000; /* Hover neon efekti */
+        background-color: #4d0000; /* Hover anında renk değişimi */
+    }
+
+    /* Card container - genel görünüm */
+    .card {
+        border-radius: 12px; /* Kartepenin kenarlarını yuvarlat */
+        border: 1px solid #ddd; /* Hafif gri çerçeve */
+    }
+
+    /* Form alanları için padding ve margin düzenlemeleri */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+        .form-group input {
+            border-radius: 30px; /* Input kenarlarını yuvarlat */
+            padding: 10px;
+            font-size: 16px;
+        }
+
+    /* Card header tasarımı */
+    .card-header {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        background-color: #660000;
+        color: white;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    /* Kayıt ol linki */
+    .text-center a {
+        text-decoration: none;
+        color: #660000;
+        font-weight: 600;
+    }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+</style>
+

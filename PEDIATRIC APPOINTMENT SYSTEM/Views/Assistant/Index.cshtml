@@ -1,0 +1,38 @@
+﻿@model IEnumerable<webOdev.Models.Assistant>
+
+<h2 class="text-center">Asistanlar Listesi</h2>
+
+<div class="row">
+    <div class="col-md-12 text-end mb-3">
+        <a href="@Url.Action("Create")" class="btn btn-danger">Yeni Asistan Oluştur</a>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Telefon Numarası</th>
+            <th>E-posta</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assistant in Model)
+        {
+            <tr>
+                <td>@assistant.Name</td>
+                <td>@assistant.Surname</td>
+                <td>@assistant.PhoneNumber</td>
+                <td>@assistant.Email</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = assistant.Id })" class="btn btn-primary btn-sm btn-success">Düzenle</a>
+                    <a href="@Url.Action("Delete", new { id = assistant.Id })" class="btn btn-danger btn-sm">Sil</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

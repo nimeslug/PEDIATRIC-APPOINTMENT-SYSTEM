@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - </title>
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        /* Sayfa yüksekliğini ayarlayarak footer'ı en alta sabitleme */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1; /* İçeriğin geri kalan kısmını alır, footer en alta itilir */
+        }
+
+        footer {
+            background-color: #330000; /* Navbar ile aynı renk */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: #330000; font-family: sans-serif; font-weight:bold;">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="background-color:#660000; padding: 3px;">NIMESLUG</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mr-10">
+                        <a class="nav-link active" href="/">ANASAYFA</a>
+                    </li>
+                    @if (Context.Session.GetString("Role") != "Admin")
+                    {
+                        <li class="nav-item mr-10">
+                            <a class="nav-link active" href="/Asistantanitim">ASİSTANLAR</a>
+                        </li>
+                        <li class="nav-item mr-10">
+                            <a class="nav-link active" href="/Ogretimuyesitanitim">ÖĞRETİM ÜYELERİ</a>
+                        </li>
+                        <li class="nav-item mr-10">
+                            <a class="nav-link active" href="/Bolumlertanitim">BÖLÜMLER</a>
+                        </li>
+                        <li class="nav-item mr-10">
+                            <a class="nav-link" href="/Appointments/Create">Randevu Al</a>
+                        </li>
+                        <li class="nav-item mr-10">
+                            <a class="nav-link" href="/Account/Login">Giriş Yap</a>
+                        </li>
+                    }
+
+                    @if (Context.Session.GetString("Role") == "Admin") // admin girişi yapıldığında gösterdiğimiz navbar itemleri
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Assistant">Asistanlar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Doctor">Öğretim Üyeleri</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Department">Bölümler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Appointments">Randevular</a>
+                        </li>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("Username"))) // Giriş yapmış kullanıcı kontrolü
+                    {
+                        <li class="nav-item">
+                            <form method="post" asp-controller="Account" asp-action="Logout">
+                                <button class="btn btn-link nav-link" type="submit"><u>Çıkış Yap</u></button>
+                            </form>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-2">
+        <div class="container">
+            <p>&copy; 2024 NIMESLUG. Tüm Hakları Saklıdır.</p>
+            <p>
+                <a href="mailto:info@nimeslug.com" class="text-white">info@nimeslug.com</a> |
+                <a href="/Privacy" class="text-white">Gizlilik Politikası</a> |
+                <a href="/Contact" class="text-white">İletişim</a>
+            </p>
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
