@@ -26,6 +26,8 @@ Schedule page
 Technologies:
 
 Frontend: HTML, CSS, Flexbox, Bootstrap, JavaScript.
+
 Backend: ASP.NET MVC / ASP.NET MVC Core (Code First approach).
+
 Database: MSSSQL SERVER.
 
